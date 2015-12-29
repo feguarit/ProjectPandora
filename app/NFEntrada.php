@@ -18,7 +18,12 @@ class NFEntrada extends Model
 
     public function produto() {
 
-    	return $this->belongsTo('App\Produto');
+    	return $this->belongsTo(Produto::class);
     	
+    }
+
+    public function itensNfEntradas()
+    {
+        return $this->hasMany(ItensNfEntradas::class);
     }
 }
