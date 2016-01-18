@@ -12,4 +12,9 @@ class ItensNfEntradas extends Model
     {
     	return $this->belongsTo(NFEntrada::class);
     }
+
+    public function produto()
+    {
+    	return $this->hasOne(Produto::class,'id');	
+    }
 }

@@ -20,8 +20,9 @@
 		</thead>
 		<tbody>
 			@foreach($nfe->itensNfEntradas as $itemNfe)
+
 			<tr>
-				<td align="center">{{ $itemNfe->id_produto }}</td>
+				<td align="center">{{ $itemNfe->produto->part_number }}</td>
 				<td align="center">{{ $itemNfe->quantidade }}</td>
 				<td align="center">{{ $itemNfe->valor_unitario }}</td>
 				<td align="center">{{ $itemNfe->quantidade * $itemNfe->valor_unitario }}</td>
