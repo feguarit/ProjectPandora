@@ -11,6 +11,12 @@ use App\Http\Controllers\Controller;
 
 class NFEntradaController extends Controller
 {
+    
+    private $nfEntrada;
+    public function __construct(NfEntrada $nfEntrada)
+    {
+        $this->nfEntrada = $nfEntrada;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +48,20 @@ class NFEntradaController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        NFEntrada::create($input);
+        $nfe = $this->nfEntrada->create($input);
+        $itensNfe = $input['itemNF'];
+        foreach ($itensNfe as $itemNfe) {
+            
+            $inf = new \App\ItensNfEntradas;
+
+            $inf->id_nf_entrada = $nfe->id;
+            $inf->num_item = $itemNfe['num_item'];
+            $inf->id_produto = \App\Produto::where('part_number',$itemNfe['part_number'])->first()->id;
+            $inf->quantidade = $itemNfe['quantidade'];
+            $inf->valor_unitario = $itemNfe['valor_unitario'];
+
+            $inf->save();
+        }
         return redirect('nfentradas/index');
     }
 
@@ -54,7 +73,8 @@ class NFEntradaController extends Controller
      */
     public function show($id)
     {
-        //
+        $nfe = $this->nfEntrada->find($id);
+        return view('nfentradas.show',compact('nfe'));
     }
 
     /**

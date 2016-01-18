@@ -71,11 +71,15 @@ Route::group(['prefix'=>'nfentradas', 'middleware'=>'auth'], function() {
 
 	Route::get('index','NFEntradaController@index');
 
+	Route::get('{id}/show','NFEntradaController@show');
+
 	Route::get('create','NFEntradaController@create');
 
 	Route::post('store','NFEntradaController@store');
 
 	Route::get('{id}/destroy','NFEntradaController@destroy');
+
+	
 
 });
 

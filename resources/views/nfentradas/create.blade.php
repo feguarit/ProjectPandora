@@ -14,7 +14,7 @@
 		</ul>
 	@endif
 
-	{!! Form::open(['url'=>'nfentradas/store']) !!}
+	{!! Form::open(['url'=>'nfentradas/store','method'=>'POST']) !!}
 
 		<div class="form-group">
 			{!! Form::label('nfe', 'Numero:') !!}

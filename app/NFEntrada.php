@@ -24,6 +24,6 @@ class NFEntrada extends Model
 
     public function itensNfEntradas()
     {
-        return $this->hasMany(ItensNfEntradas::class);
+        return $this->hasMany(ItensNfEntradas::class,'id_nf_entrada');
     }
 }

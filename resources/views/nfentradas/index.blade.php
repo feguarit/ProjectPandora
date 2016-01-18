@@ -30,6 +30,8 @@
 					<a href="/nfentradas/{{ $nfentrada->id }}/destroy" class="btn-sm btn-danger">Remover</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/nfentradas/{{ $nfentrada->id }}/edit" class="btn-sm btn-success">Editar</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/nfentradas/{{ $nfentrada->id }}/show" class="btn-sm btn-primary">EXIBIR</a>
 				</td>
 			</tr>
 			@endforeach
