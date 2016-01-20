@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Parceiro;
 use App\NFEntrada;
+use App\Commands\InsereItensEntradaCommand;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -61,6 +62,10 @@ class NFEntradaController extends Controller
             $inf->valor_unitario = $itemNfe['valor_unitario'];
 
             $inf->save();
+
+            $this->dispatch(
+               new InsereItensEntradaCommand($inf)
+            );
         }
         return redirect('nfentradas/index');
     }

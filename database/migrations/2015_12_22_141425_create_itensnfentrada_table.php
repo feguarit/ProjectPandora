@@ -15,7 +15,7 @@ class CreateItensnfentradaTable extends Migration
         Schema::create('itensnfentradas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_nf_entrada')->unsigned();
-            $table->foreign('id_nf_entrada')->references('id')->on('nfentradas');
+            $table->foreign('id_nf_entrada')->references('id')->on('nfentradas')->onDelete('cascade');
             $table->integer('num_item');
             $table->integer('id_produto')->unsigned();
             $table->foreign('id_produto')->references('id')->on('produtos');

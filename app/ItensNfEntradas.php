@@ -10,7 +10,7 @@ class ItensNfEntradas extends Model
 
     public function nfEntrada()
     {
-    	return $this->belongsTo(NFEntrada::class);
+    	return $this->belongsTo(NFEntrada::class,'id_nf_entrada');
     }
 
     public function produto()
